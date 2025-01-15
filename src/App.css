@@ -1,0 +1,128 @@
+/* 계산기 컨테이너 */
+.calculator {
+  width: 11rem; /* w-96 */
+  margin: 0 auto;
+  background-color: rgb(31, 41, 55); /* bg-gray-800 */
+  padding: 1rem; /* p-4 */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 
+              0 8px 10px -6px rgb(0 0 0 / 0.1); /* shadow-xl */
+}
+
+/* 디스플레이 영역 */
+.display {
+  background-color: rgb(229, 231, 235); /* bg-gray-200 */
+  padding: 1rem; /* p-4 */
+  margin-bottom: 1rem; /* mb-4 */
+  min-height: 8rem; /* min-h-32 */
+  border-radius: 0.375rem; /* rounded-md */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow-x: auto;
+}
+
+/* 입력칸 그리드 */
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* grid-cols-3 */
+  gap: 0.5rem; /* gap-2 */
+  width: 100%; /* w-full */
+}
+
+/* 개별 입력칸 */
+.input-box {
+  padding: 0.5rem; /* p-2 */
+  border-radius: 0.375rem; /* rounded */
+  border: 1px solid rgb(156, 163, 175); /* border-gray-400 */
+}
+
+.input-box.active {
+  border: 2px solid rgb(59, 130, 246); /* border-blue-500 border-2 */
+}
+
+/* 결과 알림창 */
+.result-alert {
+  margin-bottom: 1rem; /* mb-4 */
+  padding: 0.5rem; /* p-2 */
+  border-radius: 0.375rem; /* rounded */
+  text-align: center; /* text-center */
+  color: white; /* text-white */
+}
+
+.result-alert.success {
+  background-color: rgb(34, 197, 94); /* bg-green-500 */
+}
+
+.result-alert.error {
+  background-color: rgb(239, 68, 68); /* bg-red-500 */
+}
+
+/* 키패드 버튼 */
+.keypad-button {
+  padding: 1rem; /* p-4 */
+  font-size: 1.25rem; /* text-xl */
+  border-radius: 0.375rem; /* rounded-md */
+  color: white; /* text-white */
+  transition: background-color 0.2s; /* transition-colors */
+}
+
+.keypad-button.number {
+  background-color: rgb(75, 85, 99); /* bg-gray-600 */
+}
+
+.keypad-button.number:hover {
+  background-color: rgb(55, 65, 81); /* hover:bg-gray-700 */
+}
+
+.keypad-button.enter {
+  background-color: rgb(59, 130, 246); /* bg-blue-500 */
+  grid-column: span 3; /* col-span-3 */
+}
+
+.keypad-button.enter:hover {
+  background-color: rgb(37, 99, 235); /* hover:bg-blue-600 */
+}
+
+.keypad-button.clear {
+  background-color: rgb(239, 68, 68); /* bg-red-500 */
+}
+
+.keypad-button.clear:hover {
+  background-color: rgb(220, 38, 38); /* hover:bg-red-600 */
+}
+
+.keypad-button.backspace {
+  background-color: rgb(234, 179, 8); /* bg-yellow-500 */
+}
+
+.keypad-button.backspace:hover {
+  background-color: rgb(202, 138, 4); /* hover:bg-yellow-600 */
+}
+
+/* 정답 텍스트 */
+.answer-text {
+  font-size: 0.875rem; /* text-sm */
+  color: rgb(22, 163, 74); /* text-green-600 */
+  text-align: right; /* text-right */
+}
+
+/* 모노스페이스 폰트 */
+.mono-font {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; /* font-mono */
+}
+
+/* 기타 유틸리티 클래스 */
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}cxcccccccccccccccccccccccc  xax         x  
