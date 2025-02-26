@@ -281,10 +281,44 @@ const CalculatorGame = () => {
       const tens = Math.floor(parseInt(number) / 10) * 10;
       const ones = parseInt(number) % 10;
       return (
+        // <FlexColumn>
+        //   <ProblemText>
+        //     {number} × {number} =
+        //   </ProblemText>
+        //   <InputGrid>
+        //     <InputBox active={!sumMode && currentBox === 0}>
+        //       {answers[0] || `(${tens}×${tens})`}
+        //     </InputBox>
+        //     <InputBox active={!sumMode && currentBox === 1}>
+        //       {answers[1] || `(${tens}×${ones}×2)`}
+        //     </InputBox>
+        //     <InputBox active={!sumMode && currentBox === 2}>
+        //       {answers[2] || `(${ones}×${ones})`}
+        //     </InputBox>
+        //   </InputGrid>
+        //   {!sumMode && showAnswer && (
+        //     <AnswerText>
+        //       정답: {generateEquation(number)?.parts[currentBox]}
+        //     </AnswerText>
+        //   )}
+        //   {sumMode && (
+        //     <SumContainer active={true}>
+        //       <SumLabel>세 값의 합을 입력하세요:</SumLabel>
+        //       {sumAnswer || '0'}
+        //       {showAnswer && (
+        //         <AnswerText>
+        //           정답: {generateEquation(number)?.parts.reduce((a, b) => a + b, 0)}
+        //         </AnswerText>
+        //       )}
+        //     </SumContainer>
+        //   )}
+        // </FlexColumn>
         <FlexColumn>
-          <ProblemText>
-            {number} × {number} =
-          </ProblemText>
+        <ProblemText>
+          {number} × {number} =
+        </ProblemText>
+        {/* InputGrid가 sumMode일 때는 보이지 않게 조건부 렌더링 */}
+        {!sumMode && (
           <InputGrid>
             <InputBox active={!sumMode && currentBox === 0}>
               {answers[0] || `(${tens}×${tens})`}
@@ -296,23 +330,24 @@ const CalculatorGame = () => {
               {answers[2] || `(${ones}×${ones})`}
             </InputBox>
           </InputGrid>
-          {!sumMode && showAnswer && (
-            <AnswerText>
-              정답: {generateEquation(number)?.parts[currentBox]}
-            </AnswerText>
-          )}
-          {sumMode && (
-            <SumContainer active={true}>
-              <SumLabel>세 값의 합을 입력하세요:</SumLabel>
-              {sumAnswer || '0'}
-              {showAnswer && (
-                <AnswerText>
-                  정답: {generateEquation(number)?.parts.reduce((a, b) => a + b, 0)}
-                </AnswerText>
-              )}
-            </SumContainer>
-          )}
-        </FlexColumn>
+        )}
+        {!sumMode && showAnswer && (
+          <AnswerText>
+            정답: {generateEquation(number)?.parts[currentBox]}
+          </AnswerText>
+        )}
+        {sumMode && (
+          <SumContainer active={true}>
+            <SumLabel>세 값의 합을 입력하세요:</SumLabel>
+            {sumAnswer || '0'}
+            {showAnswer && (
+              <AnswerText>
+                정답: {generateEquation(number)?.parts.reduce((a, b) => a + b, 0)}
+              </AnswerText>
+            )}
+          </SumContainer>
+        )}
+      </FlexColumn>
       );
     }
   };
